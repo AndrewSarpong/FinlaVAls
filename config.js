@@ -18,31 +18,31 @@ const config = {
         
         gallery: [
             {
-                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/PhotofromImageResizer(1).jpg",
+                img: "PhotofromImageResizer(1).jpg",
                 date: "The Beginning",
                 caption: "Where it all started.",
                 emotion: "I knew then that you were special."
             },
             {
-                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/PhotofromImageResizer.jpg",
+                img: "PhotofromImageResizer.jpg",
                 date: "Personal Favorite",
                 caption: "I'll explore the world with you.",
                 emotion: "Every step is better by your side."
             },
             {
-                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/PhotoImageResizer1.jpg",
+                img: "PhotoImageResizer1.jpg",
                 date: "Date",
                 caption: "One of my favorite.",
                 emotion: "Our first official date date 😂"
             },
             {
-                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/ImageResizer4062.jpg",
+                img: "ImageResizer4062.jpg",
                 date: "Your favorite picture",
                 caption: "I know you",
                 emotion: "😂"
             },
             {
-                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/ImageResizerSept162025.jpg",
+                img: "ImageResizerSept162025.jpg",
                 date: "Just Us",
                 caption: "Quiet moments are my favorite.",
                 emotion: "In your silence, I found my home."
@@ -93,7 +93,7 @@ const config = {
         },
         {
             type: "story",
-            image: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/PhotoJan172026fromImageResizer.jpg",
+            image: "PhotoJan172026fromImageResizer.jpg",
             text: "You make my world brighter.",
             subtext: "I can't imagine my life without you."
         },
@@ -128,3 +128,4 @@ const config = {
     ]
 
 };
+
