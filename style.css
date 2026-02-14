@@ -1,0 +1,799 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@400;700&family=Fredoka:wght@300;400;600&family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&family=VT323&display=swap');
+
+:root {
+    /* Default Theme (Roses) */
+    --primary: #b71c1c;
+    --bg: #ffffff;
+    --text: #333333;
+    --accent: #ffebee;
+    --btn-text: #ffffff;
+    --shadow: rgba(183, 28, 28, 0.2);
+    
+    /* Default Layout & Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+    --radius: 4px;
+    --app-bg: transparent;
+    --app-border: none;
+    --app-shadow: none;
+    --app-align: center;
+    --app-text-align: center;
+    --app-padding: 20px;
+    --btn-border: none;
+    --btn-shadow: 0 4px 15px var(--shadow);
+    --btn-hover-transform: translateY(-2px);
+}
+
+[data-theme="stars"] {
+    --primary: #ffd700;
+    --bg: #0f172a;
+    --text: #e2e8f0;
+    --accent: #1e293b;
+    --btn-text: #0f172a;
+    --shadow: rgba(255, 215, 0, 0.4);
+    
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Lato', sans-serif;
+    --radius: 2px;
+    --app-bg: rgba(15, 23, 42, 0.6);
+    --app-border: 1px solid rgba(255, 215, 0, 0.3);
+    --app-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+    --btn-border: 1px solid var(--primary);
+    --btn-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+[data-theme="hearts"] {
+    --primary: #e91e63;
+    --bg: #fff0f5;
+    --text: #4a148c;
+    --accent: #fce4ec;
+    --btn-text: #ffffff;
+    --shadow: rgba(233, 30, 99, 0.2);
+    
+    --font-heading: 'Dancing Script', cursive;
+    --font-body: 'Fredoka', sans-serif;
+    --radius: 30px;
+    --app-bg: rgba(255, 255, 255, 0.9);
+    --app-border: 4px dotted var(--primary);
+    --app-shadow: 0 10px 30px rgba(233, 30, 99, 0.15);
+}
+
+[data-theme="retro"] {
+    /* 8-bit Arcade Style */
+    --primary: #ff9aa2; /* Keep pastel pink */
+    --bg: #ffdac1;
+    --text: #5d4037;
+    --accent: #fff;
+    --btn-text: #5d4037;
+    --shadow: rgba(93, 64, 55, 0.2);
+    
+    --font-heading: 'VT323', monospace;
+    --font-body: 'VT323', monospace;
+    --radius: 0px;
+    --app-bg: #fff;
+    --app-border: 4px solid var(--text);
+    --app-shadow: 10px 10px 0px var(--text);
+    --app-align: flex-start; /* Left align for console feel */
+    --app-text-align: left;
+    --app-padding: 40px;
+    --btn-border: 2px solid var(--text);
+    --btn-shadow: 4px 4px 0px var(--text);
+    --btn-hover-transform: translate(2px, 2px);
+}
+
+[data-theme="anime"] {
+    --primary: #ff69b4;
+    --bg: #e0f7fa;
+    --text: #2c3e50;
+    --accent: #ffffff;
+    --btn-text: #ffffff;
+    --shadow: rgba(44, 62, 80, 0.2);
+    
+    --font-heading: 'Fredoka', sans-serif;
+    --font-body: 'Lato', sans-serif;
+    --radius: 12px;
+    --app-bg: #ffffff;
+    --app-border: 3px solid var(--text);
+    --app-shadow: 8px 8px 0px var(--primary);
+    --btn-shadow: 4px 4px 0px var(--text);
+    --btn-border: 2px solid var(--text);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    height: 100vh;
+    /* Gradient for Retro Theme to enhance Glassmorphism */
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: var(--text);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Retro Theme Background Gradient */
+[data-theme="retro"] {
+    background-image: 
+        linear-gradient(rgba(93, 64, 55, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(93, 64, 55, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Hearts Theme Background */
+[data-theme="hearts"] {
+    background-image: radial-gradient(var(--shadow) 15%, transparent 16%), radial-gradient(var(--shadow) 15%, transparent 16%);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+#app {
+    width: 100%;
+    max-width: 550px;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: var(--app-align);
+    align-items: var(--app-align);
+    text-align: var(--app-text-align);
+    padding: var(--app-padding);
+    position: relative;
+    z-index: 10;
+    
+    /* Theme Container Styles */
+    background: var(--app-bg);
+    border: var(--app-border);
+    box-shadow: var(--app-shadow);
+    border-radius: var(--radius);
+    margin: 20px;
+    transition: all 0.5s ease;
+}
+
+/* Typography */
+h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+[data-theme="retro"] h1 {
+    font-size: 4rem; /* Pixel font needs to be larger */
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: var(--text);
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Images */
+.memory-img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    margin-bottom: 2rem;
+    border: 8px solid white;
+    transition: transform 0.5s ease;
+}
+
+.memory-img:hover {
+    transform: scale(1.01);
+}
+
+/* Buttons */
+.btn {
+    padding: 14px 36px;
+    font-size: 1rem;
+    border: var(--btn-border);
+    border-radius: var(--radius); 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px;
+    box-shadow: var(--btn-shadow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--btn-text);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: var(--btn-hover-transform);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary); /* Default fallback */
+    border: var(--btn-border);
+    border-color: var(--primary);
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Proposal Buttons */
+#yesBtn {
+    font-size: 1.5rem;
+    padding: 15px 40px;
+    background-color: var(--primary);
+    color: var(--btn-text);
+    position: relative;
+    z-index: 10; /* Keep Yes on top */
+}
+
+#noBtn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: var(--accent);
+    color: #777;
+    position: relative; /* Important for movement */
+    z-index: 1; /* Lower than Yes */
+    transition: all 0.4s ease; /* Smooth running animation */
+}
+
+/* Timer */
+.timer-box {
+    background: var(--bg);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    border: var(--app-border);
+}
+
+.timer-count {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--primary);
+    font-family: var(--font-heading);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.heart-bg {
+    position: absolute;
+    color: var(--primary);
+    font-size: 2rem;
+    animation: float 6s infinite ease-in-out;
+    z-index: 1;
+    opacity: 0.1;
+    pointer-events: auto; /* Allow interaction */
+    transition: opacity 0.5s;
+}
+
+.particle-icon {
+    display: block;
+    transition: transform 0.3s ease-out;
+    cursor: default;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Confetti */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Parallax Background */
+.parallax-layer {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: 0;
+    background-image: radial-gradient(var(--shadow) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: transform 0.1s linear;
+}
+
+[data-theme="retro"] .parallax-layer {
+    display: none; /* Hide dots for retro grid */
+}
+
+/* Heart Meter */
+.heart-meter-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.1s;
+}
+.heart-meter-container:active {
+    transform: scale(0.95);
+}
+.heart-bg-icon {
+    width: 100%;
+    height: 100%;
+    fill: #eee;
+}
+.heart-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Animate this */
+    overflow: hidden;
+    transition: height 0.2s ease-out;
+}
+.heart-fill-icon {
+    width: 150px; /* Must match container width */
+    height: 150px; /* Must match container height */
+    fill: var(--primary);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Quiz */
+.quiz-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+}
+.quiz-btn {
+    padding: 15px;
+    background: white;
+    border: 2px solid var(--accent); /* Default */
+    border: var(--btn-border);
+    border-color: var(--accent);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+.quiz-btn.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+.quiz-btn.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; animation: shake 0.5s; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+
+/* Scratch Card */
+.scratch-container {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.scratch-content {
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    padding: 20px;
+    border: 2px dashed var(--primary);
+}
+.scratch-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+/* Hidden utility */
+.hidden {
+    display: none !important;
+}
+
+/* Setup Form Styles */
+.setup-container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: left;
+    z-index: 20;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.setup-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.setup-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.setup-container select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+}
+
+.setup-container input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.demise-run {
+    animation: runAway 0.8s forwards !important;
+}
+
+@keyframes runAway {
+    0% { transform: scaleX(-1); } /* Face left */
+    100% { transform: scaleX(-1) translateX(200px); opacity: 0; }
+}
+
+/* Final State Text */
+.final-message {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-top: 20px;
+    animation: fadeIn 1s;
+}
+
+
+/* --- Digital Gift Features --- */
+
+/* Gift Box */
+.gift-box-container {
+    cursor: pointer;
+    animation: float 3s infinite ease-in-out;
+}
+.gift-emoji {
+    font-size: 5rem;
+    transition: transform 0.3s;
+}
+.gift-box-container:hover .gift-emoji {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Bear Component */
+.bear-container {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1rem auto;
+    transition: transform 0.3s ease;
+}
+
+.bear-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Bear States */
+.bear-container .mouth-sad {
+    display: none;
+    opacity: 0;
+}
+
+.bear-container.sad .mouth-happy {
+    display: none;
+}
+
+.bear-container.sad .mouth-sad {
+    display: block;
+    opacity: 1;
+}
+
+.bear-container.sad .bear-svg {
+    transform: translateY(10px);
+}
+
+.bear-container.happy {
+    animation: bearJump 0.6s infinite alternate;
+}
+
+@keyframes bearJump {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+}
+
+/* Gift Menu Grid */
+.gift-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    margin-top: 20px;
+}
+
+.gift-item {
+    background: var(--accent);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+}
+
+/* --- THEME SPECIFIC UI OVERRIDES --- */
+
+/* RETRO THEME: Arcade Grid */
+[data-theme="retro"] .gift-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+[data-theme="retro"] .gift-item {
+    background: #fff;
+    box-shadow: 4px 4px 0px var(--text);
+    border: 2px solid var(--text);
+    border-radius: 0;
+    padding: 15px;
+    transition: transform 0.1s;
+}
+
+[data-theme="retro"] .gift-item:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text);
+    background: var(--primary);
+    color: #fff;
+}
+
+[data-theme="retro"] .gift-label {
+    font-size: 0.7rem;
+    margin-top: 5px;
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* ANIME THEME: Pop/Manga Style */
+[data-theme="anime"] .gift-item {
+    background: #ffffff;
+    border: 3px solid var(--text);
+    box-shadow: 6px 6px 0px var(--text); /* Hard shadow */
+    border-radius: 12px;
+    transform: translate(0, 0);
+}
+
+[data-theme="anime"] .gift-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px var(--primary); /* Color change on hover */
+    border-color: var(--primary);
+}
+
+.gift-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.gift-label {
+    font-weight: bold;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+/* Sub-Pages */
+.sub-page-container {
+    width: 100%;
+    max-width: 450px;
+    text-align: left;
+    background: var(--bg);
+    color: var(--text);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--app-shadow);
+    border: var(--app-border);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.letter-content {
+    white-space: pre-wrap;
+    font-family: var(--font-heading);
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.gallery-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+.gallery-img:hover { transform: scale(1.05); }
+
+.voucher-card {
+    border: 2px dashed var(--primary);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background: var(--accent);
+    text-align: center;
+}
+.voucher-title { font-weight: bold; color: var(--primary); margin-bottom: 5px; }
+.voucher-desc { font-size: 0.9rem; color: #666; }
+
+/* Bear Customization */
+[data-theme="retro"] .bear-svg circle, 
+[data-theme="retro"] .bear-svg ellipse {
+    fill: var(--text) !important;
+    stroke: var(--primary);
+    stroke-width: 2px;
+}
+[data-theme="anime"] .bear-svg * {
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+/* --- Enhanced Gallery / Timeline Styles --- */
+
+.timeline-media-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.timeline-img {
+    display: block; /* Fix bottom gap */
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.timeline-media-wrapper:hover .timeline-img {
+    transform: scale(1.03);
+}
+
+.memory-heart-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.memory-heart-btn svg {
+    width: 22px;
+    height: 22px;
+    stroke: #ff4d6d;
+    stroke-width: 2.5;
+    fill: transparent;
+    transition: all 0.3s ease;
+}
+
+.memory-heart-btn.liked svg {
+    fill: #ff4d6d;
+    transform: scale(1.1);
+}
+
+.memory-heart-btn:active {
+    transform: scale(0.9);
+}
+
+.timeline-emotion {
+    background: var(--accent);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-left: 4px solid var(--primary);
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.emotion-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.mini-heart {
+    position: fixed;
+    pointer-events: none;
+    font-size: 1.5rem;
+    transition: all 0.8s ease-out;
+    z-index: 1000;
+}

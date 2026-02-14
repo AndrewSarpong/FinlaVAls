@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+    <div class="parallax-layer" id="parallaxBg"></div>
+    
+    <div id="app">
+        <!-- Content will be loaded here by script.js -->
+    </div>
+
+    <!-- Setup Form (Hidden by default, shown via JS if no params) -->
+    <div id="setup" class="setup-container hidden">
+        <h1>Create Your Valentine ❤️</h1>
+        <form id="setupForm" method="POST" onsubmit="event.preventDefault(); createLink()">
+            <label>Your Name:</label>
+            <input type="text" id="senderInput" name="sender" placeholder="e.g. Anthony">
+            
+            <label>Partner's Name:</label>
+            <input type="text" id="recipientInput" name="recipient" placeholder="e.g. My Love">
+            
+            <label>Start Date:</label>
+            <input type="date" id="dateInput" name="date">
+            
+            <label>Your Memories (Images/Videos):</label>
+            <div id="mediaContainer">
+                <div class="media-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="text" name="media_url" placeholder="URL (jpg, png, mp4)" style="flex: 2; margin-bottom: 0;">
+                    <select name="media_pos" style="flex: 1; margin-bottom: 0;">
+                        <option value="story">Story Page</option>
+                        <option value="gallery_0">Gallery 1</option>
+                        <option value="gallery_1">Gallery 2</option>
+                        <option value="gallery_2">Gallery 3</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="addMediaRow()" style="margin-bottom: 20px; padding: 8px 15px; font-size: 0.9rem;">+ Add Media</button>
+            
+            <label>Where did you first meet?</label>
+            <select id="locationInput" name="location">
+                <option value="In the car 🚗">In the car 🚗</option>
+                <option value="At the park 🌳">At the park 🌳</option>
+                <option value="At a cafe ☕">At a cafe ☕</option>
+                <option value="At Garden City 🏫">At school 🏫</option>
+                <option value="At a party 🎉">At a party 🎉</option>
+                <option value="Online 💻">Online 💻</option>
+                <option value="At work 💼">At work 💼</option>
+                <option value="At the beach 🏖️">At the beach 🏖️</option>
+                <option value="At the gym 🏋️">At the gym 🏋️</option>
+                <option value="At a concert 🎵">At a concert 🎵</option>
+                <option value="At a restaurant 🍽️">At a restaurant 🍽️</option>
+            </select>
+
+            <label>Theme:</label>
+            <select id="themeInput" name="theme">
+                <option value="roses">Roses 🌹 (Red/White)</option>
+                <option value="stars">Stars ✨ (Gold/Midnight)</option>
+                <option value="hearts">Hearts 💕 (Pink/Pastel)</option>
+                <option value="retro">Retro 🕹️ (Vintage/Arcade)</option>
+                <option value="anime">Anime 🌸 (Kawaii/Pastel)</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">Create Link 🔗</button>
+        </form>
+        
+        <div id="linkContainer" class="hidden" style="margin-top: 15px;">
+            <p>Share this link with your partner:</p>
+            <input type="text" id="shareLink" readonly style="background: #f8f9fa; color: #555;">
+            <button class="btn btn-secondary" onclick="copyLink()">Copy Link</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
