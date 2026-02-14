@@ -18,31 +18,31 @@ const config = {
         
         gallery: [
             {
-                img: "/Users/andrewsarfo/Downloads/vals_day-main/PhotofromImageResizer(1).jpg",
+                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/PhotofromImageResizer(1).jpg",
                 date: "The Beginning",
                 caption: "Where it all started.",
                 emotion: "I knew then that you were special."
             },
             {
-                img: "/Users/andrewsarfo/Downloads/vals_day-main/PhotofromImageResizer.jpg",
+                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/PhotofromImageResizer.jpg",
                 date: "Personal Favorite",
                 caption: "I'll explore the world with you.",
                 emotion: "Every step is better by your side."
             },
             {
-                img: "/Users/andrewsarfo/Downloads/vals_day-main/firstdate.jpg",
+                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/PhotoImageResizer1.jpg",
                 date: "Date",
                 caption: "One of my favorite.",
                 emotion: "Our first official date date 😂"
             },
             {
-                img: "/Users/andrewsarfo/Downloads/vals_day-main/PhotoImageResizer1.jpg",
+                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/ImageResizer4062.jpg",
                 date: "Your favorite picture",
                 caption: "I know you",
                 emotion: "😂"
             },
             {
-                img: "/Users/andrewsarfo/Downloads/vals_day-main/ImageResizerSept162025.jpg",
+                img: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/ImageResizerSept162025.jpg",
                 date: "Just Us",
                 caption: "Quiet moments are my favorite.",
                 emotion: "In your silence, I found my home."
@@ -93,7 +93,7 @@ const config = {
         },
         {
             type: "story",
-            image: "/Users/andrewsarfo/Downloads/vals_day-main/PhotoJan172026fromImageResizer.jpg",
+            image: "https://github.com/AndrewSarpong/FinlaVAls/blob/6348647fc9efaf4e48c180a33d6774c66d576d52/PhotoJan172026fromImageResizer.jpg",
             text: "You make my world brighter.",
             subtext: "I can't imagine my life without you."
         },
@@ -126,4 +126,5 @@ const config = {
             question: "Will you be my Valentine? 💖"
         }
     ]
+
 };
